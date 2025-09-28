@@ -14,11 +14,38 @@ module.exports = {
       fontWeight: {
         normal: '400',
         medium: '500',
+        semibold: '600',
         bold: '700',
+      },
+      fontSize: {
+        // Sistema de tipografía estandarizado basado en scheduling page
+        'hero': ['56px', { lineHeight: '100%', letterSpacing: '-1px' }],
+        'hero-sm': ['48px', { lineHeight: '100%', letterSpacing: '-1px' }],
+        'hero-xs': ['40px', { lineHeight: '100%', letterSpacing: '-1px' }],
+        'hero-mobile': ['28px', { lineHeight: '100%', letterSpacing: '-1px' }],
+        'section-title': ['40px', { lineHeight: '110%', letterSpacing: '-1px' }],
+        'section-title-sm': ['32px', { lineHeight: '110%', letterSpacing: '-1px' }],
+        'section-title-xs': ['24px', { lineHeight: '110%', letterSpacing: '-1px' }],
+        'subsection-title': ['20px', { lineHeight: '120%' }],
+        'subsection-title-sm': ['18px', { lineHeight: '120%' }],
+        'body-large': ['20px', { lineHeight: '150%' }],
+        'body': ['16px', { lineHeight: '150%' }],
+        'body-sm': ['14px', { lineHeight: '150%' }],
+        'caption': ['12px', { lineHeight: '140%' }],
+        'metric': ['48px', { lineHeight: '100%' }],
+        'metric-sm': ['40px', { lineHeight: '100%' }],
+        'metric-xs': ['32px', { lineHeight: '100%' }],
       },
       colors: {
         background: '#FFFFFF',
         foreground: '#171717',
+        // Sistema de colores normalizado
+        text: {
+          primary: '#0C1523',      // Texto principal
+          secondary: '#3C4147',    // Texto secundario
+          tertiary: '#6B7280',     // Texto terciario
+          inverse: '#FFFFFF',      // Texto sobre fondos oscuros
+        },
         primary: {
           DEFAULT: '#5FA9DF',
           50: '#F0F8FF',

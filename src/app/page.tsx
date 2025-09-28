@@ -6,6 +6,7 @@ import FAQ from "@/app/components/ui/FAQ";
 import Link from "next/link";
 import ScrollAnimation from "@/app/components/ScrollAnimation";
 import { CheckCircle } from "lucide-react";
+import { responsiveHeroClasses, responsiveH2Classes, responsiveBodyClasses, responsiveH1Classes } from "@/lib/typography";
 
 const FAQs = [
     {
@@ -52,11 +53,11 @@ export default function Home() {
                     <div className="flex flex-col items-center justify-center pt-32 sm:pt-[140px] md:pt-[160px] lg:pt-[180px] pb-20 md:pb-[120px] lg:pb-[150px]">
                         {/* Título centrado arriba */}
                         <div className="text-center relative z-10 mb-6 md:mb-8 lg:mb-10 max-w-[800px] mx-auto px-4">
-                            <div style={{letterSpacing: '-1px'}} className="font-medium text-[#0C1523] text-[28px] sm:text-5xl md:text-6xl lg:text-[56px] leading-tight md:leading-tight lg:leading-[100%] relative z-10">
+                            <div className={`${responsiveHeroClasses.full} relative z-10`}>
                                 Transformando la<br/>
-                                <span className="bg-[#5FA9DF] text-white px-2 py-0.5 rounded-md text-[24px] sm:text-4xl md:text-5xl lg:text-[50px]">experiencia</span> médica
+                                <span className="bg-[#5FA9DF] text-white px-2 py-0.5 rounded-md text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px]">experiencia</span> médica
                             </div>
-                            <div className="mt-3 md:mt-4 text-sm md:text-base lg:text-lg max-w-[750px] mx-auto font-normal text-[#3C4147] leading-relaxed">
+                            <div className={`mt-3 md:mt-4 ${responsiveBodyClasses.full} max-w-[750px] mx-auto`}>
                                 Wellbyn es la plataforma médica que conecta pacientes y clínicas en un solo lugar — citas, historial, documentación y comunicación automatizada con IA.
                             </div>
                         </div>
@@ -65,7 +66,7 @@ export default function Home() {
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 md:mb-12 lg:mb-16">
                             <Link href="/waitlist">
                                 <div className="w-fit flex items-center gap-2 border rounded-full py-2.5 px-6 text-[#5FA9DF] bg-white hover:bg-gray-50 transition-all duration-200 ease-in-out cursor-pointer font-medium text-sm">
-                                    <span>Soy paciente</span>
+                                    <span>Waitlist</span>
                                     <span>
                                         <Image src="/icons/arrow-right-blue.svg" alt="arrow" width={14} height={14}/>
                                     </span>
@@ -73,7 +74,7 @@ export default function Home() {
                             </Link>
                             <Link href="/request">
                                 <div className="w-fit flex items-center gap-2 rounded-full py-2.5 px-6 text-white bg-[#5FA9DF] hover:bg-[#4A9BCE] transition-all duration-200 ease-in-out cursor-pointer font-medium text-sm">
-                                    <span>Solicitar Demo</span>
+                                    <span>Solicitar demo</span>
                                     <span>
                                         <Image src="/icons/arrow-right.svg" alt="arrow" width={14} height={14}/>
                                     </span>
@@ -145,7 +146,7 @@ export default function Home() {
                     <ScrollAnimation>
                         <div className="flex flex-col items-center justify-center my-12 md:my-16 lg:my-20 mb-16 md:mb-20 lg:mb-24">
                             <ScrollAnimation direction="up" delay={0.2}>
-                                <div className="text-center gradient-01 text-xl md:text-2xl lg:text-3xl font-medium px-4 leading-tight">
+                                <div className={`text-center gradient-01 ${responsiveH1Classes.full} px-4`}>
                                     Una solución confiable, respaldada por formación global y validación local
                                 </div>
                             </ScrollAnimation>
@@ -171,10 +172,10 @@ export default function Home() {
                             </ScrollAnimation>
                             <ScrollAnimation direction="right" delay={0.4}>
                                 <div className="order-1 md:order-2 text-center md:text-left lg:pt-[50px]">
-                                    <div style={{letterSpacing: '-1px'}} className="text-center gradient-01 text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-tight">
+                                    <div className={`text-center gradient-01 ${responsiveH1Classes.full}`}>
                                         ¿Que es Wellbyn?
                                     </div>
-                                    <div className="text-center text-base md:text-lg mt-6 md:mt-8 text-[#3C4147] px-4 md:px-0 leading-relaxed">
+                                    <div className={`text-center ${responsiveBodyClasses.full} mt-6 md:mt-8 px-4 md:px-0`}>
                                          Wellbyn conecta clínicas y pacientes en una sola plataforma, centralizando agenda, historial y comunicación con inteligencia artificial para hacer la salud más simple y eficiente.
                                     </div>
                                 </div>
@@ -188,19 +189,19 @@ export default function Home() {
                             <ScrollAnimation direction="up" delay={0.1}>
                                 <div className="flex align-center text-left items-center gap-4 md:gap-5">
                                     <CheckCircle className="mt-2 flex-shrink-0 w-8 h-8 md:w-[34px] md:h-[34px] text-[#0C1523]" />
-                                        <div className="text-lg md:text-xl font-medium leading-tight">Plataforma unificada</div>
+                                        <div className="text-h3-sm md:text-h3 font-semibold text-text-primary leading-tight">Plataforma unificada</div>
                                 </div>
                             </ScrollAnimation>
                             <ScrollAnimation direction="up" delay={0.2}>
                                 <div className="flex align-center text-left items-center gap-4 md:gap-5">
                                     <CheckCircle className="mt-2 flex-shrink-0 w-8 h-8 md:w-[34px] md:h-[34px] text-[#0C1523]" />
-                                        <div className="text-lg md:text-xl font-medium leading-tight">Inteligencia Artificial que ahorra tiempo</div>
+                                        <div className="text-h3-sm md:text-h3 font-semibold text-text-primary leading-tight">Inteligencia Artificial que ahorra tiempo</div>
                                 </div>
                             </ScrollAnimation>
                             <ScrollAnimation direction="up" delay={0.3}>
                                 <div className="flex align-center text-left items-center gap-4 md:gap-5 md:col-span-2 lg:col-span-1">
                                     <CheckCircle className="mt-2 flex-shrink-0 w-8 h-8 md:w-[34px] md:h-[34px] text-[#0C1523]" />
-                                    <div className="text-lg md:text-xl font-medium leading-tight">Experiencia móvil y moderna</div>
+                                    <div className="text-h3-sm md:text-h3 font-semibold text-text-primary leading-tight">Experiencia móvil y moderna</div>
                                 </div>
                             </ScrollAnimation>
                         </div>
@@ -234,10 +235,10 @@ export default function Home() {
                             
                             {/* Texto - siempre visible */}
                             <div className="md:ml-[15px] lg:ml-[15px] text-center md:text-left lg:pt-[80px] relative z-10">
-                                <div style={{letterSpacing: '-1px'}} className="text-[#0C1523] text-2xl md:text-3xl lg:text-5xl font-medium leading-tight md:leading-tight lg:leading-[110%]">
+                                <div className={`text-text-primary ${responsiveH1Classes.full}`}>
                                     Automatiza todo tu flujo clínico.
                                 </div>
-                                <div className="mt-6 md:mt-8 lg:mt-[38px] text-[#3C4147] text-base md:text-lg lg:text-xl px-4 md:px-0 leading-relaxed">
+                                <div className={`mt-6 md:mt-8 lg:mt-[38px] text-text-secondary ${responsiveBodyClasses.full} lg:text-xl px-4 md:px-0`}>
                                     Wellbyn automatiza agendas, notas y facturación en una sola plataforma HIPAA-compliant, liberando a tu equipo del papeleo para enfocarse en lo que importa.
                                 </div>
                             </div>
@@ -261,10 +262,10 @@ export default function Home() {
                         {/* Second subsection - Toma el control de tu salud */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-[42px]">
                             <div className="lg:ml-[30px] pt-8 md:pt-12 order-2 md:order-1 text-center md:text-left lg:pt-[100px] relative z-10">
-                                <div style={{letterSpacing: '-1px'}} className="text-[#0C1523] text-2xl md:text-3xl lg:text-5xl font-medium leading-tight md:leading-tight lg:leading-[110%]">
+                                <div className={`text-text-primary ${responsiveH1Classes.full}`}>
                                     Toma el control de tu salud
                                 </div>
-                                <div className="mt-6 md:mt-8 lg:mt-[38px] text-[#3C4147] max-w-[526px] mx-auto md:mx-0 text-base md:text-lg lg:text-xl px-4 md:px-0 leading-relaxed">
+                                <div className={`mt-6 md:mt-8 lg:mt-[38px] text-text-secondary max-w-[526px] mx-auto md:mx-0 ${responsiveBodyClasses.full} lg:text-xl px-4 md:px-0`}>
                                     Wellbyn te da acceso a tu historial, citas y documentos médicos en un solo lugar, para que tengas verdadero control sobre tu salud.
                                 </div>
                             </div>
@@ -308,7 +309,7 @@ export default function Home() {
                                 <div className="absolute top-1/2 right-0 w-24 h-24 bg-gradient-to-l from-[#5FA9DF]/2 to-transparent rounded-full transform translate-x-6"></div>
                                 <div className="absolute bottom-1/3 left-1/4 w-16 h-16 bg-gradient-to-tr from-[#5FA9DF]/3 to-transparent rounded-full"></div>
                                 <ScrollAnimation direction="up" delay={0.2}>
-                                    <div style={{letterSpacing: '-1px'}} className="gradient-01 text-2xl md:text-3xl lg:text-4xl font-medium text-center align-center leading-tight md:leading-tight lg:leading-[110%]">
+                                    <div className={`gradient-01 ${responsiveH1Classes.full} text-center align-center`}>
                                         Funciones inteligentes que elevan tu experiencia médica
                                     </div>
                                 </ScrollAnimation>
@@ -321,10 +322,10 @@ export default function Home() {
                                                 <path d="M66.3149 47.8007L34.9988 64.6614L3.68262 47.8007C3.10134 47.5101 2.42971 47.4572 1.8101 47.6533C1.19048 47.8494 0.671588 48.2791 0.36339 48.8513C0.0551921 49.4234 -0.0180816 50.0932 0.159099 50.7184C0.33628 51.3437 0.749988 51.8755 1.31254 52.2009L33.8137 69.7015C34.1779 69.8976 34.5851 70.0002 34.9988 70.0002C35.4124 70.0002 35.8196 69.8976 36.1838 69.7015L68.685 52.2009C68.9844 52.0512 69.2506 51.8429 69.468 51.5884C69.6854 51.3339 69.8494 51.0383 69.9504 50.7192C70.0514 50.4001 70.0873 50.0639 70.056 49.7307C70.0246 49.3974 69.9267 49.0739 69.768 48.7792C69.6092 48.4845 69.393 48.2247 69.1319 48.0152C68.8709 47.8056 68.5705 47.6506 68.2485 47.5594C67.9264 47.4681 67.5893 47.4425 67.2572 47.4839C66.9251 47.5254 66.6046 47.6331 66.3149 47.8007Z" fill="#90D5FC"/>
                                                 <path d="M34.7647 4.37402L6.0918 20.0777L35.3116 36.0939L63.672 19.4527L34.7647 4.37402Z" fill="#5FA9DF"/>
                                             </svg>
-                                            <div className="mt-6 md:mt-[30px] text-base md:text-lg font-medium leading-tight">
+                                            <div className="mt-6 md:mt-[30px] text-h3-sm md:text-h3 font-semibold text-text-primary leading-tight">
                                                 Todo en un solo lugar
                                             </div>
-                                            <div className="mt-4 md:mt-[18px] text-base md:text-lg leading-relaxed">
+                                            <div className={`mt-4 md:mt-[18px] ${responsiveBodyClasses.full} leading-relaxed`}>
                                                 Accede y organiza citas, historial médico y documentos desde una sola plataforma. Sin llamadas innecesarias ni perder tiempo en diferentes sistemas.                                </div>
                                         </div>
                                     </ScrollAnimation>
@@ -335,10 +336,10 @@ export default function Home() {
                                                 <path d="M25 55H20C19.337 55 18.7011 55.2634 18.2322 55.7322C17.7634 56.2011 17.5 56.837 17.5 57.5C17.5 58.163 17.7634 58.7989 18.2322 59.2678C18.7011 59.7366 19.337 60 20 60H25C25.663 60 26.2989 59.7366 26.7678 59.2678C27.2366 58.7989 27.5 58.163 27.5 57.5C27.5 56.837 27.2366 56.2011 26.7678 55.7322C26.2989 55.2634 25.663 55 25 55Z" fill="#5FA9DF"/>
                                                 <path d="M32.5 10H12.5C11.1193 10 10 11.1193 10 12.5V47.5C10 48.8807 11.1193 50 12.5 50H32.5C33.8807 50 35 48.8807 35 47.5V12.5C35 11.1193 33.8807 10 32.5 10Z" fill="#5FA9DF"/>
                                             </svg>
-                                            <div className="mt-6 md:mt-[30px] text-base md:text-lg font-medium leading-tight">
+                                            <div className="mt-6 md:mt-[30px] text-h3-sm md:text-h3 font-semibold text-text-primary leading-tight">
                                                 Compatible y móvil
                                             </div>
-                                            <div className="mt-4 md:mt-[18px] text-base md:text-lg leading-relaxed">
+                                            <div className={`mt-4 md:mt-[18px] ${responsiveBodyClasses.full} leading-relaxed`}>
                                                 Usa Wellbyn desde tu celular, tableta o computadora. Pacientes y clínicas siempre conectados, con agilidad desde cualquier lugar.                                </div>
                                         </div>
                                     </ScrollAnimation>
@@ -348,10 +349,10 @@ export default function Home() {
                                                 <path d="M57.5 37.5H32.5V12.5C32.5 11.837 32.2366 11.2011 31.7678 10.7322C31.2989 10.2634 30.6631 10 30 10C24.0666 10 18.2664 11.7595 13.3329 15.0559C8.39943 18.3524 4.55426 23.0377 2.28363 28.5195C0.0129986 34.0013 -0.581101 40.0333 0.576455 45.8527C1.73401 51.6721 4.59123 57.0176 8.78681 61.2132C12.9824 65.4088 18.3279 68.266 24.1473 69.4235C29.9667 70.5811 35.9987 69.987 41.4805 67.7164C46.9623 65.4457 51.6477 61.6006 54.9441 56.6671C58.2405 51.7336 60 45.9334 60 40C60 39.337 59.7366 38.7011 59.2678 38.2322C58.7989 37.7634 58.1631 37.5 57.5 37.5ZM5.00001 40C5.00721 33.8044 7.31171 27.8317 11.4678 23.2369C15.6239 18.6421 21.3362 15.7518 27.5 15.125V64.875C21.3362 64.2482 15.6239 61.3579 11.4678 56.7631C7.31171 52.1683 5.00721 46.1956 5.00001 40ZM32.5 64.87V42.5H54.875C54.2905 48.2345 51.7452 53.5917 47.6688 57.6672C43.5924 61.7426 38.2347 64.2867 32.5 64.87Z" fill="#5FA9DF"/>
                                                 <path d="M40 0C39.337 0 38.7011 0.263392 38.2322 0.732233C37.7634 1.20107 37.5 1.83696 37.5 2.5V30C37.5 30.663 37.7634 31.2989 38.2322 31.7678C38.7011 32.2366 39.337 32.5 40 32.5H67.5C68.163 32.5 68.7989 32.2366 69.2678 31.7678C69.7366 31.2989 70 30.663 70 30C69.9914 22.0461 66.8279 14.4205 61.2037 8.7963C55.5795 3.17207 47.9539 0.0086027 40 0Z" fill="#90D5FC"/>
                                             </svg>
-                                            <div className="mt-6 md:mt-[30px] text-base md:text-lg font-medium leading-tight">
+                                            <div className="mt-6 md:mt-[30px] text-h3-sm md:text-h3 font-semibold text-text-primary leading-tight">
                                                 Inteligencia que trabaja por ti
                                             </div>
-                                            <div className="mt-4 md:mt-[18px] text-base md:text-lg leading-relaxed">
+                                            <div className={`mt-4 md:mt-[18px] ${responsiveBodyClasses.full} leading-relaxed`}>
                                                 Wellbyn automatiza notas, tareas y procesos clínicos, reduciendo errores y simplificando la experiencia para todos.                                </div>
                                         </div>
                                     </ScrollAnimation>
@@ -364,12 +365,12 @@ export default function Home() {
                 {/* CTA Section */}
                 <div className="w-full bg-[#5FA9DF] pt-20 md:pt-[115px] pb-20 md:pb-[160px] flex flex-col items-center justify-center px-6 md:px-8 lg:px-6">
                     <ScrollAnimation direction="up" delay={0.2}>
-                        <div style={{letterSpacing: '-2px'}} className="text-center font-medium gradient-02 text-2xl md:text-3xl lg:text-4xl leading-tight md:leading-tight lg:leading-[100%]">
+                        <div className={`text-center gradient-02 ${responsiveH1Classes.full}`}>
                             ¿Listo para transformar tu experiencia médica?
                         </div>
                     </ScrollAnimation>
                     <ScrollAnimation direction="up" delay={0.4}>
-                        <div className="mt-8 md:mt-[42px] max-w-[806px] text-white text-center text-base md:text-lg leading-relaxed">
+                        <div className={`mt-8 md:mt-[42px] max-w-[806px] text-white text-center ${responsiveBodyClasses.full} leading-relaxed`}>
                             Ya seas paciente o clínica, Wellbyn centraliza todo — agenda, historial, notas clínicas y más — en una plataforma simple, rápida y segura.
                         </div>
                     </ScrollAnimation>
@@ -404,10 +405,10 @@ export default function Home() {
                             <div className="max-w-[1295px] grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[71px] mx-auto">
                                 <ScrollAnimation direction="left" delay={0.2}>
                                     <div className="text-center md:text-left">
-                                        <div style={{letterSpacing: '-1px'}} className="gradient-01 text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-tight lg:leading-[110%]">
+                                        <div className={`gradient-01 ${responsiveH1Classes.full}`}>
                                             ¿Tienes preguntas?
                                         </div>
-                                        <div className="mt-6 md:mt-[23px] text-base md:text-lg text-[#3C4147] leading-relaxed">
+                                        <div className={`mt-6 md:mt-[23px] ${responsiveBodyClasses.full} text-text-secondary leading-relaxed`}>
                                             Aquí respondemos lo más importante sobre Wellbyn para clínicas.
                                         </div>
                                     </div>

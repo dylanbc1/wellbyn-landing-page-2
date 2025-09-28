@@ -5,6 +5,7 @@ import {Download, Grid2x2Plus, Zap} from "lucide-react";
 import UnifiedHeader from "@/app/components/UnifiedHeader";
 import WellbynFooter from "@/app/components/WellbynFooter";
 import Input from "@/app/components/ui/input";
+import { responsiveHeroClasses, responsiveH2Classes, responsiveBodyClasses, responsiveH1Classes } from "@/lib/typography";
 
 export default function RequestPage() {
     const [formData, setFormData] = useState({
@@ -116,12 +117,12 @@ export default function RequestPage() {
                     {/* Left Column - Title, Description and Features */}
                     <div className="max-w-[628px] order-2 lg:order-1">
                         <h1 
-                            className="font-medium text-[#0C1523] text-[28px] sm:text-5xl md:text-6xl lg:text-[56px] leading-tight md:leading-tight lg:leading-[100%] mb-4 md:mb-6"
+                            className={`${responsiveHeroClasses.full} mb-4 md:mb-6`}
                             style={{letterSpacing: '-1px'}}
                         >
                             Solicita tu demo
                         </h1>
-                        <p className="text-sm md:text-base lg:text-lg max-w-[600px] font-medium text-[#3C4147] leading-relaxed mb-8 md:mb-12 lg:mb-16">
+                        <p className={`${responsiveBodyClasses.full} max-w-[600px] mb-8 md:mb-12 lg:mb-16`}>
                             Descubre cómo Wellbyn puede transformar la forma en que tu clínica o práctica médica se conecta con sus pacientes. Sin compromiso, sin complicaciones.
                         </p>
 
@@ -133,10 +134,10 @@ export default function RequestPage() {
                                     <Download className="w-4 h-4 md:w-5 md:h-5" color="#5FA9DF" />
                                 </div>
                                 <div className="max-w-[440px]">
-                                    <h3 className="text-[#0C1523] text-lg md:text-xl font-medium leading-tight mb-2 md:mb-3">
+                                    <h3 className={`${responsiveH2Classes.full} mb-2 md:mb-3`}>
                                         Implementación rápida y sin dolores de cabeza
                                     </h3>
-                                    <p className="text-[#3C4147] text-base md:text-lg leading-relaxed">
+                                    <p className={`${responsiveBodyClasses.large}`}>
                                         Olvídate de los sistemas complicados. Wellbyn se activa fácil, sin cables ni semanas de espera.
                                     </p>
                                 </div>
@@ -148,10 +149,10 @@ export default function RequestPage() {
                                     <Grid2x2Plus className="w-4 h-4 md:w-5 md:h-5" color="#5FA9DF" />
                                 </div>
                                 <div className="max-w-[440px]">
-                                    <h3 className="text-[#0C1523] text-lg md:text-xl font-medium leading-tight mb-2 md:mb-3">
+                                    <h3 className={`${responsiveH2Classes.full} mb-2 md:mb-3`}>
                                         Todo conectado, en un solo lugar
                                     </h3>
-                                    <p className="text-[#3C4147] text-base md:text-lg leading-relaxed">
+                                    <p className={`${responsiveBodyClasses.large}`}>
                                         Agenda médica, historial clínico, notas, documentos y comunicación — todo fluye desde una sola plataforma.
                                     </p>
                                 </div>
@@ -163,10 +164,10 @@ export default function RequestPage() {
                                     <Zap className="w-4 h-4 md:w-5 md:h-5" color="#5FA9DF" />
                                 </div>
                                 <div className="max-w-[440px]">
-                                    <h3 className="text-[#0C1523] text-lg md:text-xl font-medium leading-tight mb-2 md:mb-3">
+                                    <h3 className={`${responsiveH2Classes.full} mb-2 md:mb-3`}>
                                         Pacientes felices, clínicas más ágiles
                                     </h3>
-                                    <p className="text-[#3C4147] text-base md:text-lg leading-relaxed">
+                                    <p className={`${responsiveBodyClasses.large}`}>
                                         Haz que tus pacientes hagan check-in desde el celular, reciban sus documentos y vivan una experiencia sin papeleo ni filas.
                                     </p>
                                 </div>
@@ -177,7 +178,7 @@ export default function RequestPage() {
                     {/* Right Column - Form */}
                     <div className="order-1 lg:order-2">
                         <div className="bg-white rounded-lg p-6 md:p-8 lg:p-12 shadow-[0px_44px_94px_rgba(0,0,0,0.11)]">
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-[#0C1523] mb-6 md:mb-8 leading-tight" style={{letterSpacing: '-1px'}}>
+                            <h2 className={`${responsiveH1Classes.full} mb-6 md:mb-8`} style={{letterSpacing: '-1px'}}>
                                 Solicita tu demo gratuita
                             </h2>
                             {/* Status Message */}
@@ -335,12 +336,12 @@ export default function RequestPage() {
             <div className="max-w-[1295px] mx-auto px-6 md:px-8 lg:px-0 mt-16 md:mt-20 lg:mt-24 mb-16 md:mb-20 lg:mb-24">
                 <div className="text-center">
                     <h3 
-                        className="text-2xl md:text-3xl lg:text-4xl font-medium gradient-01 mb-6 md:mb-8 leading-tight md:leading-tight lg:leading-[110%]"
+                        className={`${responsiveH1Classes.full} gradient-01 mb-6 md:mb-8`}
                         style={{letterSpacing: '-1px'}}
                     >
                         ¿Tienes preguntas sobre la implementación?
                     </h3>
-                    <p className="text-sm md:text-base lg:text-lg font-medium text-[#3C4147] leading-relaxed mb-8 max-w-[600px] mx-auto">
+                    <p className={`${responsiveBodyClasses.full} mb-8 max-w-[600px] mx-auto`}>
                         Nuestro equipo de implementación está aquí para ayudarte en cada paso del proceso.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -348,22 +349,22 @@ export default function RequestPage() {
                             <div className="w-16 h-16 bg-[#E8F4FD] rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span className="text-[#5FA9DF] text-2xl font-bold">1</span>
                             </div>
-                            <h4 className="text-lg md:text-xl font-medium text-[#0C1523] mb-2">Configuración inicial</h4>
-                            <p className="text-base md:text-lg text-[#3C4147] leading-relaxed">Configuramos tu plataforma en menos de 24 horas</p>
+                            <h4 className={`${responsiveH2Classes.full} mb-2`}>Configuración inicial</h4>
+                            <p className={`${responsiveBodyClasses.large}`}>Configuramos tu plataforma en menos de 24 horas</p>
                         </div>
                         <div className="text-center">
                             <div className="w-16 h-16 bg-[#E8F4FD] rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span className="text-[#5FA9DF] text-2xl font-bold">2</span>
                             </div>
-                            <h4 className="text-lg md:text-xl font-medium text-[#0C1523] mb-2">Capacitación del equipo</h4>
-                            <p className="text-base md:text-lg text-[#3C4147] leading-relaxed">Entrenamiento completo para tu personal</p>
+                            <h4 className={`${responsiveH2Classes.full} mb-2`}>Capacitación del equipo</h4>
+                            <p className={`${responsiveBodyClasses.large}`}>Entrenamiento completo para tu personal</p>
                         </div>
                         <div className="text-center">
                             <div className="w-16 h-16 bg-[#E8F4FD] rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span className="text-[#5FA9DF] text-2xl font-bold">3</span>
                             </div>
-                            <h4 className="text-lg md:text-xl font-medium text-[#0C1523] mb-2">Soporte continuo</h4>
-                            <p className="text-base md:text-lg text-[#3C4147] leading-relaxed">Asistencia técnica disponible 24/7</p>
+                            <h4 className={`${responsiveH2Classes.full} mb-2`}>Soporte continuo</h4>
+                            <p className={`${responsiveBodyClasses.large}`}>Asistencia técnica disponible 24/7</p>
                         </div>
                     </div>
                 </div>

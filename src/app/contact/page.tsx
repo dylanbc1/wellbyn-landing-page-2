@@ -4,6 +4,7 @@ import { useState } from "react";
 import UnifiedHeader from "@/app/components/UnifiedHeader";
 import WellbynFooter from "@/app/components/WellbynFooter";
 import Input from "@/app/components/ui/input";
+import { responsiveHeroClasses, responsiveH2Classes, responsiveBodyClasses } from "@/lib/typography";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -43,14 +44,11 @@ export default function ContactPage() {
             {/* Hero Section */}
             <div className="max-w-[1295px] mx-auto px-6 mt-8 md:mt-12 lg:mt-16">
                 <div className="text-center">
-                    <h1 
-                        className="text-4xl md:text-6xl lg:text-[80px] font-bold leading-[106%] mb-4 md:mb-6 relative"
-                        style={{letterSpacing: '-4px'}}
-                    >
+                    <h1 className={`${responsiveHeroClasses.full} font-bold mb-4 md:mb-6 relative text-text-primary`}>
                         Contáctanos
                         <div className="absolute right-0 top-0 w-16 md:w-24 lg:w-32 h-full bg-gradient-to-l from-white to-transparent"></div>
                     </h1>
-                    <p className="text-base md:text-lg text-[#3C4147] leading-[170%] max-w-[600px] md:max-w-[718px] mx-auto px-4 md:px-0">
+                    <p className={`${responsiveBodyClasses.full} text-text-secondary leading-[170%] max-w-[600px] md:max-w-[718px] mx-auto px-4 md:px-0`}>
                         En Wellbyn estamos aquí para ayudarte. Si tienes preguntas, sugerencias o quieres hablar con nuestro equipo, llena el formulario y nos comunicaremos contigo pronto.
                     </p>
                 </div>
@@ -142,7 +140,7 @@ export default function ContactPage() {
             {/* Additional Contact Info */}
             <div className="max-w-[1295px] mx-auto px-6 mt-12 md:mt-16 lg:mt-20 mb-16">
                 <div className="text-center">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#18181B] mb-6 md:mb-8">
+                    <h2 className={`${responsiveH2Classes.full} font-bold text-text-primary mb-6 md:mb-8`}>
                         Otras formas de contactarnos
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">

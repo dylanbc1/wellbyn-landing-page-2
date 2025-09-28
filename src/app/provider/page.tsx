@@ -7,6 +7,7 @@ import Link from "next/link";
 import FAQ from "@/app/components/ui/FAQ";
 import ScrollAnimation from "@/app/components/ScrollAnimation";
 import ProviderWobbleCards from "@/app/components/ui/provider-wobble-cards";
+import { responsiveHeroClasses, responsiveH2Classes, responsiveBodyClasses, responsiveH1Classes } from "@/lib/typography";
 
 // Hook para animación de contador
 const useCounterAnimation = (end: number, duration: number = 2000, shouldStart: boolean = false) => {
@@ -124,10 +125,10 @@ export default function ProviderPage(){
                         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-8 lg:gap-12 xl:gap-16 items-center min-h-[500px]">
                             {/* Texto - izquierda en desktop */}
                             <div className="text-center lg:text-left order-2 lg:order-1">
-                                <div style={{letterSpacing: '-1px'}} className="font-medium text-[#0C1523] text-[28px] sm:text-5xl md:text-6xl lg:text-[48px] xl:text-[56px] leading-tight md:leading-tight lg:leading-[100%]">
+                                <div className={`font-medium text-text-primary ${responsiveHeroClasses.secondary} xl:text-[56px]`}>
                                     Automatiza todo tu flujo clínico
                                 </div>
-                                <div className="mt-4 md:mt-6 text-sm md:text-base lg:text-lg max-w-[535px] mx-auto lg:mx-0 font-medium text-[#3C4147] leading-relaxed">
+                                <div className={`mt-4 md:mt-6 ${responsiveBodyClasses.full} max-w-[535px] mx-auto lg:mx-0 font-medium text-text-secondary leading-relaxed`}>
                                     Optimiza tus agendas, notas médicas, y facturación desde un solo lugar. Plataforma simple, segura y lista para escalar contigo.
                                 </div>
 
@@ -247,13 +248,12 @@ export default function ProviderPage(){
                     <div className="mt-4 md:mt-6 lg:mt-8 flex flex-col items-center justify-center">
                         <div className="text-center max-w-[800px] px-4">
                             <ScrollAnimation direction="up" delay={0.2}>
-                                <div style={{letterSpacing: '-2px'}}
-                                     className="font-medium gradient-01 text-2xl md:text-3xl lg:text-4xl leading-tight md:leading-tight lg:leading-[110%]">
+                                <div className={`gradient-01 ${responsiveH1Classes.full}`}>
                                     La plataforma que transforma la gestión clínica
                                 </div>
                             </ScrollAnimation>
                             <ScrollAnimation direction="up" delay={0.4}>
-                                <div className="mt-6 md:mt-8 lg:mt-[38px] text-[#3C4147] text-base md:text-lg lg:text-[20px] leading-relaxed">
+                                <div className={`mt-6 md:mt-8 lg:mt-[38px] text-text-secondary ${responsiveBodyClasses.full} lg:text-[20px] leading-relaxed`}>
                                     Wellbyn automatiza las tareas más pesadas de tu clínica — desde el agendamiento y check-in, hasta la codificación médica, seguros y facturación. Todo en un solo sistema inteligente, diseñado para reducir la carga administrativa y dejar que los médicos y su equipo se concentren en lo que realmente importa: el cuidado de los pacientes.
                                 </div>
                             </ScrollAnimation>
@@ -388,8 +388,7 @@ export default function ProviderPage(){
                 
                 <div className="max-w-[1295px] mx-auto px-6 md:px-8 lg:px-0 relative z-10">
                     <div className="flex justify-center w-full mx-auto max-w-[753px]">
-                        <div style={{letterSpacing: '-1px'}}
-                             className="font-semibold text-2xl md:text-3xl lg:text-4xl text-center px-4 leading-tight md:leading-tight lg:leading-[110%] gradient-01">
+                        <div className={`${responsiveH1Classes.full} text-center px-4 gradient-01`}>
                             Optimiza tu clínica sin complicaciones
                         </div>
                     </div>
@@ -409,50 +408,49 @@ export default function ProviderPage(){
                     <div className="max-w-[1295px] mx-auto w-full px-6 md:px-8 lg:px-0 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[48px]">
                         <div ref={counterSectionRef}>
                             <ScrollAnimation direction="left" delay={0.2}>
-                                <div style={{letterSpacing: '-1px'}}
-                                     className="font-medium gradient-01 text-2xl md:text-3xl lg:text-4xl leading-tight md:leading-tight lg:leading-[110%] w-full text-center">
+                                <div className={`gradient-01 ${responsiveH1Classes.full} w-full text-center`}>
                                     La diferencia está en los números
                                 </div>
                             </ScrollAnimation>
                             <ScrollAnimation direction="left" delay={0.4}>
-                                <div className="mt-6 md:mt-8 lg:mt-[36px] text-base md:text-lg leading-relaxed text-[#3C4147] font-medium">
+                                <div className={`mt-6 md:mt-8 lg:mt-[36px] ${responsiveBodyClasses.full} text-text-secondary font-medium`}>
                                     Ahorra tiempo, factura mejor y retén más pacientes.
                                     Optimiza cada consulta con automatización clínica de verdad.
                                 </div>
                             </ScrollAnimation>
                             <div className="mt-8 md:mt-12 lg:mt-[59px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[48px]">
                                 <ScrollAnimation direction="up" delay={0.5}>
-                                    <div>
+                                    <div className="text-center md:text-left">
                                         <div className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold leading-tight">
                                             <AnimatedCounter end={30} suffix="%" shouldStart={shouldAnimateCounters} />
                                         </div>
-                                        <div className="mt-2 md:mt-[7px] text-base md:text-lg text-[#3C4147] font-medium leading-relaxed">Más ingresos por códigos
+                                        <div className={`mt-2 md:mt-[7px] ${responsiveBodyClasses.full} text-text-secondary font-medium leading-relaxed`}>Más ingresos por códigos
                                             correctos
                                         </div>
                                     </div>
                                 </ScrollAnimation>
                                 <ScrollAnimation direction="up" delay={0.6}>
-                                    <div>
+                                    <div className="text-center md:text-left">
                                         <div className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold leading-tight">
                                             <AnimatedCounter end={40} suffix="%" shouldStart={shouldAnimateCounters} />
                                         </div>
-                                        <div className="mt-2 md:mt-[7px] text-base md:text-lg text-[#3C4147] font-medium leading-relaxed">más retención de pacientes</div>
+                                        <div className={`mt-2 md:mt-[7px] ${responsiveBodyClasses.full} text-text-secondary font-medium leading-relaxed`}>más retención de pacientes</div>
                                     </div>
                                 </ScrollAnimation>
                                 <ScrollAnimation direction="up" delay={0.7}>
-                                    <div>
+                                    <div className="text-center md:text-left">
                                         <div className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold leading-tight">
                                             <AnimatedCounter end={50} suffix="%" shouldStart={shouldAnimateCounters} />
                                         </div>
-                                        <div className="mt-2 md:mt-[7px] text-base md:text-lg text-[#3C4147] font-medium leading-relaxed">Menos tiempo administrativo</div>
+                                        <div className={`mt-2 md:mt-[7px] ${responsiveBodyClasses.full} text-text-secondary font-medium leading-relaxed`}>Menos tiempo administrativo</div>
                                     </div>
                                 </ScrollAnimation>
                                 <ScrollAnimation direction="up" delay={0.8}>
-                                    <div>
+                                    <div className="text-center md:text-left">
                                         <div className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold leading-tight">
                                             <AnimatedCounter end={25} suffix="%" shouldStart={shouldAnimateCounters} />
                                         </div>
-                                        <div className="mt-2 md:mt-[7px] text-base md:text-lg text-[#3C4147] font-medium leading-relaxed">Menos ausencias</div>
+                                        <div className={`mt-2 md:mt-[7px] ${responsiveBodyClasses.full} text-text-secondary font-medium leading-relaxed`}>Menos ausencias</div>
                                     </div>
                                 </ScrollAnimation>
                             </div>
@@ -606,12 +604,12 @@ export default function ProviderPage(){
             {/* CTA Section */}
             <div className="w-full bg-[#5FA9DF] pt-20 md:pt-[115px] pb-20 md:pb-[160px] flex flex-col items-center justify-center px-6 md:px-8 lg:px-6">
                 <ScrollAnimation direction="up" delay={0.2}>
-                    <div style={{letterSpacing: '-2px'}} className="text-center font-medium gradient-02 text-2xl md:text-3xl lg:text-4xl leading-tight md:leading-tight lg:leading-[100%]">
+                    <div className={`text-center gradient-02 ${responsiveH1Classes.full}`}>
                         ¿Listo para automatizar tu clínica?
                     </div>
                 </ScrollAnimation>
                 <ScrollAnimation direction="up" delay={0.4}>
-                    <div className="mt-8 md:mt-[42px] max-w-[806px] text-white text-center text-base md:text-lg leading-relaxed">
+                    <div className={`mt-8 md:mt-[42px] max-w-[806px] text-white text-center ${responsiveBodyClasses.full} leading-relaxed`}>
                         Wellbyn automatiza las tareas más pesadas de tu clínica — desde el agendamiento y check-in, hasta la codificación médica, seguros y facturación.
                     </div>
                 </ScrollAnimation>

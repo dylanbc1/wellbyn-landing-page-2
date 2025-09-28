@@ -7,6 +7,7 @@ import Link from "next/link";
 import ScrollAnimation from "@/app/components/ScrollAnimation";
 import { CheckCircle } from "lucide-react";
 import PatientsMovingCards from "@/app/components/ui/patients-moving-cards";
+import { responsiveHeroClasses, responsiveH2Classes, responsiveBodyClasses, responsiveH1Classes } from "@/lib/typography";
 
 const FAQs = [
     {
@@ -68,10 +69,10 @@ export default function PatientsPage() {
                             
                             {/* Texto - derecha en desktop - MÁS ESPACIO */}
                             <div className="text-center lg:text-left order-1 lg:order-2">
-                                <div style={{letterSpacing: '-1px'}} className="font-medium text-[#0C1523] text-[28px] sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[60px] leading-tight md:leading-tight lg:leading-[100%]">
+                                <div className={`font-medium text-text-primary ${responsiveHeroClasses.secondary} xl:text-[60px]`}>
                                     Tu salud, más simple
                                 </div>
-                                <div className="mt-4 md:mt-6 text-sm md:text-base lg:text-lg max-w-[600px] mx-auto lg:mx-0 font-medium text-[#3C4147] leading-relaxed">
+                                <div className={`mt-4 md:mt-6 ${responsiveBodyClasses.full} max-w-[600px] mx-auto lg:mx-0 font-medium text-text-secondary leading-relaxed`}>
                                     Agenda citas, revisa tu historial y recibe recordatorios al instante. Todo en un solo lugar, sin complicaciones.
                                 </div>
 
@@ -104,13 +105,17 @@ export default function PatientsPage() {
                 <ScrollAnimation>
                     <div className="flex flex-col items-center justify-center py-16 md:py-20 lg:py-[70px]">
                         <ScrollAnimation direction="up" delay={0.2}>
-                            <div style={{letterSpacing: '-1px'}} className="text-center gradient-01 text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-tight">
-                                Una nueva forma de cuidar tu salud
+                            <div className={`text-center gradient-01 ${responsiveH1Classes.full}`}>
+                                Ir al médico nunca debería ser tan complicado
                             </div>
                         </ScrollAnimation>
                         <ScrollAnimation direction="up" delay={0.4}>
-                            <div className="mt-6 md:mt-8 text-base md:text-lg text-[#3C4147] text-center max-w-[600px] px-4 leading-relaxed">
-                                Hicimos una app pensando en lo que tú necesitas como paciente: encontrar doctores confiables, agendar sin complicaciones, tener tu historial organizado y comunicarte en un solo lugar.
+                            <div className={`mt-6 md:mt-8 ${responsiveBodyClasses.full} text-text-secondary text-center max-w-[600px] px-4 leading-relaxed`}>
+                                Pero hoy en día, hacer una cita o entender tu historial médico es un dolor de cabeza.
+                                Llamadas y llamadas, todas sin respuesta.
+                                Historial médico fragmentado.
+                                Horas perdidas esperando.
+                                No sabes a qué doctor ir... y por eso creamos Wellbyn!
                             </div>
                         </ScrollAnimation>
                         <ScrollAnimation direction="up" delay={0.6}>
@@ -124,12 +129,12 @@ export default function PatientsPage() {
                 <ScrollAnimation>
                     <div className="flex flex-col items-center justify-center w-full mt-12 md:mt-0">
                         <ScrollAnimation direction="up" delay={0.2}>
-                            <div className="text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-tight lg:leading-[110%] max-w-[1140px] gradient-01 text-center">
+                            <div className={`${responsiveH1Classes.full} max-w-[1140px] gradient-01 text-center`}>
                                 Una nueva forma de cuidar tu salud, desde tu celular.
                             </div>
                         </ScrollAnimation>
                         <ScrollAnimation direction="up" delay={0.4}>
-                            <div className="max-w-[705px] mt-[42px] text-base md:text-lg lg:text-[20px] leading-relaxed md:leading-relaxed lg:leading-[34px] text-center">
+                            <div className={`max-w-[705px] mt-[42px] ${responsiveBodyClasses.full} lg:text-[20px] leading-relaxed md:leading-relaxed lg:leading-[34px] text-center`}>
                                 Hicimos una app pensando en lo que tú necesitas como paciente:
                                 encontrar doctores confiables, agendar sin complicaciones, tener tu historial organizado y
                                 comunicarte en un solo lugar.
@@ -148,8 +153,7 @@ export default function PatientsPage() {
                 <ScrollAnimation>
                     <div className="my-32 md:my-20 lg:my-[167px] w-full flex flex-col items-center justify-center">
                         <ScrollAnimation direction="up" delay={0.2}>
-                            <div style={{letterSpacing: '-1px', lineHeight: '100%'}}
-                                 className="font-medium gradient-01 text-2xl md:text-3xl lg:text-4xl max-w-[770px] w-full text-center px-4 mb-12 md:mb-16 lg:mb-20">
+                            <div className={`gradient-01 ${responsiveH1Classes.full} max-w-[770px] w-full text-center px-4 mb-12 md:mb-16 lg:mb-20`}>
                                 Todo lo que necesitas, en una sola app
                             </div>
                         </ScrollAnimation>
@@ -474,12 +478,12 @@ export default function PatientsPage() {
                     <ScrollAnimation>
                         <div className="flex flex-col items-center justify-center text-center">
                             <ScrollAnimation direction="up" delay={0.2}>
-                                <div style={{letterSpacing: '-1px'}} className="text-[#0C1523] text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-tight lg:leading-[110%]">
+                                <div className={`text-text-primary ${responsiveH1Classes.full}`}>
                                     Descubre cómo funciona Wellbyn, en menos de un minuto
                                 </div>
                             </ScrollAnimation>
                             <ScrollAnimation direction="up" delay={0.4}>
-                                <div className="mt-6 md:mt-8 lg:mt-[38px] text-[#3C4147] text-base md:text-lg max-w-[600px] mx-auto leading-relaxed">
+                                <div className={`mt-6 md:mt-8 lg:mt-[38px] text-text-secondary ${responsiveBodyClasses.full} max-w-[600px] mx-auto leading-relaxed`}>
                                     Mira cómo puedes agendar citas, hacer check-in desde casa, revisar tu historial médico y más — todo desde tu celular.
                                 </div>
                             </ScrollAnimation>

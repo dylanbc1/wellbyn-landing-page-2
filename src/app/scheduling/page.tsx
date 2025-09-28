@@ -64,6 +64,7 @@ export default function SchedulingPage() {
     const [shouldAnimateMetrics, setShouldAnimateMetrics] = useState(false);
     const counterSectionRef = useRef<HTMLDivElement>(null);
     const metricsSectionRef = useRef<HTMLDivElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
     
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -97,6 +98,13 @@ export default function SchedulingPage() {
             metricsObserver.disconnect();
         };
     }, [shouldAnimateCounters, shouldAnimateMetrics]);
+
+    // Control de velocidad del video
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.playbackRate = 1.2;
+        }
+    }, []);
     
     return (
         <div className="text-[#0C1523] overflow-x-hidden">
@@ -109,7 +117,7 @@ export default function SchedulingPage() {
                             {/* Texto - izquierda en desktop */}
                             <div className="text-center lg:text-left order-2 lg:order-1">
                                 <div style={{letterSpacing: '-1px'}} className="font-medium text-[#0C1523] text-[28px] sm:text-5xl md:text-6xl lg:text-[48px] xl:text-[56px] leading-tight md:leading-tight lg:leading-[100%]">
-                                    Optimiza tu agenda con <span className="bg-[#5FA9DF] text-white px-2 py-1 rounded-md text-[24px] sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[50px]">IA</span>
+                                    Optimiza tu agenda con <span className="bg-[#5FA9DF] text-white px-1 py-0.5 sm:px-2 sm:py-1 rounded-md text-[20px] sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[44px]">IA</span>
                                 </div>
                                 <div className="mt-4 md:mt-6 text-sm md:text-base lg:text-lg max-w-[535px] mx-auto lg:mx-0 font-medium text-[#3C4147] leading-relaxed">
                                     Maximiza tus ingresos, reduce tiempos muertos y mejora la experiencia de tus pacientes con nuestro sistema de scheduling inteligente.
@@ -249,52 +257,40 @@ export default function SchedulingPage() {
                             <ScrollAnimation direction="up" delay={0.6}>
                                 <div className="relative max-w-[900px] mx-auto">
                                     {/* Video wrapper con efectos premium */}
-                                    <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-8 shadow-2xl border border-white/50">
-                                        {/* Video thumbnail/placeholder */}
-                                        <div className="relative aspect-video bg-gradient-to-br from-[#0C1523] to-[#2A3441] rounded-xl overflow-hidden group cursor-pointer">
-                                            {/* Background pattern */}
-                                            <div className="absolute inset-0 opacity-50" style={{
-                                                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235FA9DF' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-                                            }}></div>
+                                    <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl border border-white/50">
+                                        {/* Video real */}
+                                        <div className="relative aspect-video bg-gradient-to-br from-[#0C1523] to-[#2A3441] rounded-xl overflow-hidden">
+                                            <video 
+                                                ref={videoRef}
+                                                className="w-full h-full object-cover rounded-xl"
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                                preload="auto"
+                                            >
+                                                <source src="/images/scheduling-demo.mp4" type="video/mp4" />
+                                                Tu navegador no soporta el elemento de video.
+                                            </video>
                                             
-                                            {/* Video content overlay */}
-                                            <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                                                {/* Play button premium */}
-                                                <div className="relative mb-6">
-                                                    <div className="w-20 h-20 md:w-24 md:h-24 bg-[#5FA9DF] rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                                                        <Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" />
-                                                    </div>
-                                                    {/* Ripple effect */}
-                                                    <div className="absolute inset-0 w-20 h-20 md:w-24 md:h-24 bg-[#5FA9DF] rounded-full animate-ping opacity-20"></div>
-                                                </div>
-                                                
-                                                {/* Video title */}
-                                                <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mb-3 text-center" style={{letterSpacing: '-0.5px'}}>
-                                                    Optimización en Tiempo Real
-                                                </h3>
-                                                <p className="text-base md:text-lg text-gray-300 text-center max-w-[500px] leading-relaxed">
-                                                    Observa cómo la IA reorganiza automáticamente la agenda del Dr. Martínez para maximizar eficiencia y ingresos
-                                                </p>
-                                            </div>
-                                            
-                                            {/* Hover overlay */}
-                                            <div className="absolute inset-0 bg-[#5FA9DF]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                            {/* Overlay sutil para mejor integración */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
                                         </div>
                                         
                                         {/* Video description below */}
-                                        <div className="mt-6 md:mt-8 text-center">
-                                            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                                                <div className="flex items-center gap-2 bg-[#5FA9DF]/10 px-3 py-1.5 rounded-full">
-                                                    <div className="w-2 h-2 bg-[#5FA9DF] rounded-full"></div>
-                                                    <span className="text-sm font-medium text-[#0C1523]">Demo en vivo</span>
+                                        <div className="mt-4 sm:mt-6 md:mt-8 text-center">
+                                            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6">
+                                                <div className="flex items-center gap-1.5 sm:gap-2 bg-[#5FA9DF]/10 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full">
+                                                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#5FA9DF] rounded-full"></div>
+                                                    <span className="text-xs sm:text-sm font-medium text-[#0C1523]">Demo en vivo</span>
                                                 </div>
-                                                <div className="flex items-center gap-2 bg-[#5FA9DF]/10 px-3 py-1.5 rounded-full">
-                                                    <div className="w-2 h-2 bg-[#5FA9DF] rounded-full"></div>
-                                                    <span className="text-sm font-medium text-[#0C1523]">Casos reales</span>
+                                                <div className="flex items-center gap-1.5 sm:gap-2 bg-[#5FA9DF]/10 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full">
+                                                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#5FA9DF] rounded-full"></div>
+                                                    <span className="text-xs sm:text-sm font-medium text-[#0C1523]">Casos reales</span>
                                                 </div>
-                                                <div className="flex items-center gap-2 bg-[#5FA9DF]/10 px-3 py-1.5 rounded-full">
-                                                    <div className="w-2 h-2 bg-[#5FA9DF] rounded-full"></div>
-                                                    <span className="text-sm font-medium text-[#0C1523]">Resultados medibles</span>
+                                                <div className="flex items-center gap-1.5 sm:gap-2 bg-[#5FA9DF]/10 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full">
+                                                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#5FA9DF] rounded-full"></div>
+                                                    <span className="text-xs sm:text-sm font-medium text-[#0C1523]">Resultados medibles</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -320,7 +316,7 @@ export default function SchedulingPage() {
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-12 md:mt-16 lg:mt-20">
                             <ScrollAnimation direction="left" delay={0.3}>
-                                <div className="flex justify-center">
+                                <div className="hidden md:flex justify-center">
                                     <Image 
                                         src="/images/chart-img.png" 
                                         alt="scheduling-optimization" 
@@ -486,27 +482,27 @@ export default function SchedulingPage() {
                             <ScrollAnimation direction="left" delay={0.5}>
                                 <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-6 md:p-8">
                                     <div className="text-center mb-6">
-                                        <h3 className="text-xl md:text-2xl font-medium text-[#0C1523] mb-2">Antes - Agenda Manual</h3>
-                                        <div className="text-2xl md:text-3xl font-semibold text-red-600">
+                                        <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-[#0C1523] mb-2">Antes - Agenda Manual</h3>
+                                        <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-red-600">
                                             <AnimatedCounter end={1770} prefix="$" suffix="/semana" shouldStart={shouldAnimateCounters} />
                                         </div>
                                     </div>
-                                    <div className="space-y-3">
-                                        <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                                            <span className="text-sm font-medium">Espacios vacíos</span>
-                                            <span className="text-red-600 font-semibold">
+                                    <div className="space-y-2 sm:space-y-3">
+                                        <div className="flex justify-between items-center p-2 sm:p-3 bg-white rounded-lg">
+                                            <span className="text-xs sm:text-sm font-medium">Espacios vacíos</span>
+                                            <span className="text-red-600 font-semibold text-sm sm:text-base">
                                                 <AnimatedCounter end={35} suffix="%" shouldStart={shouldAnimateCounters} />
                                             </span>
                                         </div>
-                                        <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                                            <span className="text-sm font-medium">Eficiencia</span>
-                                            <span className="text-red-600 font-semibold">
+                                        <div className="flex justify-between items-center p-2 sm:p-3 bg-white rounded-lg">
+                                            <span className="text-xs sm:text-sm font-medium">Eficiencia</span>
+                                            <span className="text-red-600 font-semibold text-sm sm:text-base">
                                                 <AnimatedCounter end={65} suffix="%" shouldStart={shouldAnimateCounters} />
                                             </span>
                                         </div>
-                                        <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                                            <span className="text-sm font-medium">Tiempo perdido</span>
-                                            <span className="text-red-600 font-semibold">
+                                        <div className="flex justify-between items-center p-2 sm:p-3 bg-white rounded-lg">
+                                            <span className="text-xs sm:text-sm font-medium">Tiempo perdido</span>
+                                            <span className="text-red-600 font-semibold text-sm sm:text-base">
                                                 <AnimatedCounter end={12} suffix=" horas" shouldStart={shouldAnimateCounters} />
                                             </span>
                                         </div>
@@ -518,27 +514,27 @@ export default function SchedulingPage() {
                             <ScrollAnimation direction="right" delay={0.6}>
                                 <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6 md:p-8">
                                     <div className="text-center mb-6">
-                                        <h3 className="text-xl md:text-2xl font-medium text-[#0C1523] mb-2">Después - IA Optimizada</h3>
-                                        <div className="text-2xl md:text-3xl font-semibold text-green-600">
+                                        <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-[#0C1523] mb-2">Después - IA Optimizada</h3>
+                                        <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-green-600">
                                             <AnimatedCounter end={2385} prefix="$" suffix="/semana" shouldStart={shouldAnimateCounters} />
                                         </div>
                                     </div>
-                                    <div className="space-y-3">
-                                        <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                                            <span className="text-sm font-medium">Espacios vacíos</span>
-                                            <span className="text-green-600 font-semibold">
+                                    <div className="space-y-2 sm:space-y-3">
+                                        <div className="flex justify-between items-center p-2 sm:p-3 bg-white rounded-lg">
+                                            <span className="text-xs sm:text-sm font-medium">Espacios vacíos</span>
+                                            <span className="text-green-600 font-semibold text-sm sm:text-base">
                                                 <AnimatedCounter end={8} suffix="%" shouldStart={shouldAnimateCounters} />
                                             </span>
                                         </div>
-                                        <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                                            <span className="text-sm font-medium">Eficiencia</span>
-                                            <span className="text-green-600 font-semibold">
+                                        <div className="flex justify-between items-center p-2 sm:p-3 bg-white rounded-lg">
+                                            <span className="text-xs sm:text-sm font-medium">Eficiencia</span>
+                                            <span className="text-green-600 font-semibold text-sm sm:text-base">
                                                 <AnimatedCounter end={92} suffix="%" shouldStart={shouldAnimateCounters} />
                                             </span>
                                         </div>
-                                        <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                                            <span className="text-sm font-medium">Tiempo perdido</span>
-                                            <span className="text-green-600 font-semibold">
+                                        <div className="flex justify-between items-center p-2 sm:p-3 bg-white rounded-lg">
+                                            <span className="text-xs sm:text-sm font-medium">Tiempo perdido</span>
+                                            <span className="text-green-600 font-semibold text-sm sm:text-base">
                                                 <AnimatedCounter end={3} suffix=" horas" shouldStart={shouldAnimateCounters} />
                                             </span>
                                         </div>
@@ -562,23 +558,23 @@ export default function SchedulingPage() {
                         Únete a cientos de médicos que ya están maximizando sus ingresos y mejorando su calidad de vida con scheduling inteligente.
                     </div>
                 </ScrollAnimation>
-                <div className="mt-8 md:mt-[36px] gap-8 md:gap-[75px] flex flex-col sm:flex-row items-center justify-center">
+                <div className="mt-6 sm:mt-8 md:mt-[36px] gap-4 sm:gap-6 md:gap-8 lg:gap-[75px] flex flex-col sm:flex-row items-center justify-center">
                     <div>
                         <Link href="/request">
-                            <div className="w-fit flex items-center gap-2 border rounded-full py-4 px-8 text-[#5FA9DF] bg-white hover:bg-gray-50 transition-all duration-300 ease-in-out  hover:shadow-lg cursor-pointer font-bold text-base">
+                            <div className="w-fit flex items-center gap-2 border rounded-full py-3 sm:py-4 px-6 sm:px-8 text-[#5FA9DF] bg-white hover:bg-gray-50 transition-all duration-300 ease-in-out hover:shadow-lg cursor-pointer font-bold text-sm sm:text-base">
                                 <span>Solicitar demo</span>
                                 <span>
-                                    <Image src="/icons/arrow-right-blue.svg" alt="arrow" width={16} height={16}/>
+                                    <Image src="/icons/arrow-right-blue.svg" alt="arrow" width={14} height={14} className="sm:w-4 sm:h-4"/>
                                 </span>
                             </div>
                         </Link>
                     </div>
                     <div>
                         <Link href="/waitlist">
-                            <div className="w-fit flex items-center gap-2 rounded-full py-4 px-8 text-[#5FA9DF] bg-white hover:bg-gray-50 transition-all duration-300 ease-in-out  hover:shadow-lg cursor-pointer font-bold text-base">
+                            <div className="w-fit flex items-center gap-2 rounded-full py-3 sm:py-4 px-6 sm:px-8 text-[#5FA9DF] bg-white hover:bg-gray-50 transition-all duration-300 ease-in-out hover:shadow-lg cursor-pointer font-bold text-sm sm:text-base">
                                 <span>Waitlist</span>
                                 <span>
-                                    <Image src="/icons/arrow-right-blue.svg" alt="arrow" width={16} height={16}/>
+                                    <Image src="/icons/arrow-right-blue.svg" alt="arrow" width={14} height={14} className="sm:w-4 sm:h-4"/>
                                 </span>
                             </div>
                         </Link>

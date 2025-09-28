@@ -9,7 +9,7 @@ const FAQ:React.FC<PropsI> = ({ question, answer}) => {
     const [show, setShow] = useState(false);
     return (
         <div>
-            <div className="cursor-pointer text-[20px] font-semibold flex items-center gap-[28px]" onClick={() => setShow(prev => !prev)}>
+            <div className="cursor-pointer text-h3 font-semibold text-text-primary flex items-center gap-[28px]" onClick={() => setShow(prev => !prev)}>
                 <span className="mt-2">
                     {show ? (
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12" fill="none">
@@ -24,7 +24,7 @@ const FAQ:React.FC<PropsI> = ({ question, answer}) => {
                 </span>
                 <span>{question}</span>
             </div>
-            {show && <div className="text-[#3C4147]" dangerouslySetInnerHTML={{ __html: answer }}>
+            {show && <div className="text-text-secondary body-text" dangerouslySetInnerHTML={{ __html: answer }}>
             </div>}
         </div>
     )
