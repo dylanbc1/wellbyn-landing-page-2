@@ -7,6 +7,7 @@ import Link from "next/link";
 import ScrollAnimation from "@/app/components/ScrollAnimation";
 import { CheckCircle } from "lucide-react";
 import { responsiveHeroClasses, responsiveH2Classes, responsiveBodyClasses, responsiveH1Classes } from "@/lib/typography";
+import { redirect } from 'next/navigation';
 
 const FAQs = [
     {
@@ -44,6 +45,9 @@ const FAQs = [
 ];
 
 export default function Home() {
+    // Redirigir automáticamente a scheduling
+    redirect('/scheduling');
+    
     return (
         <div className="text-[#0C1523] overflow-x-hidden">
             {/* Hero Section */}
@@ -375,7 +379,7 @@ export default function Home() {
                         </div>
                     </ScrollAnimation>
                     <div className="mt-8 md:mt-[36px] gap-8 md:gap-[75px] flex flex-col sm:flex-row items-center justify-center">
-                        <div>
+                        {/* <div>
                             <Link href="/patients">
                                 <div className="w-fit flex items-center gap-2 border rounded-full py-4 px-8 text-[#5FA9DF] bg-white hover:bg-gray-50 transition-all duration-300 ease-in-out  hover:shadow-lg cursor-pointer font-bold text-base">
                                     <span>Soy paciente</span>
@@ -394,7 +398,7 @@ export default function Home() {
                                     </span>
                                 </div>
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

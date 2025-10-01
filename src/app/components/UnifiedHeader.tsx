@@ -84,7 +84,7 @@ const UnifiedHeader: React.FC = () => {
 
                         {/* Desktop Navigation Menu */}
                         <nav className="hidden lg:flex items-center gap-8">
-                            <Link
+                            {/* <Link
                                 href="/"
                                 className={`text-base font-medium transition-colors ${
                                     isHomePage 
@@ -95,9 +95,9 @@ const UnifiedHeader: React.FC = () => {
                                 }`}
                             >
                                 Inicio
-                            </Link>
+                            </Link> */}
                             
-                            <Link
+                            {/* <Link
                                 href="/provider"
                                 className={`text-base font-medium transition-colors ${
                                     shouldHaveBackground
@@ -112,8 +112,8 @@ const UnifiedHeader: React.FC = () => {
                                 }`}
                             >
                                 Proveedor
-                            </Link>
-                            <Link
+                            </Link> */}
+                            {/* <Link
                                 href="/patients"
                                 className={`text-base font-medium transition-colors ${
                                     shouldHaveBackground
@@ -128,7 +128,7 @@ const UnifiedHeader: React.FC = () => {
                                 }`}
                             >
                                 Paciente
-                            </Link>
+                            </Link> */}
                             
                             {/* Productos Dropdown - Al final */}
                             <div className="relative">
@@ -167,7 +167,7 @@ const UnifiedHeader: React.FC = () => {
                     {/* Right - CTA Buttons and Mobile Menu */}
                     <div className="flex items-center gap-4">
                         {/* Desktop CTA Buttons */}
-                        <div className="hidden md:flex items-center gap-3">
+                        <div className="hidden lg:flex items-center gap-3">
                             <Link href="/login">
                                 <button className={`py-2 font-bold px-4 rounded-full transition-all duration-300 ease-in-out  cursor-pointer text-sm ${
                                     shouldHaveBackground
@@ -219,7 +219,7 @@ const UnifiedHeader: React.FC = () => {
                 }`}>
                     <div className="py-4 border-t border-gray-200">
                         <nav className="flex flex-col space-y-4">
-                            <Link
+                            {/* <Link
                                 href="/"
                                 className={`text-base font-medium transition-colors py-2 px-4 rounded-lg ${
                                     isHomePage
@@ -228,7 +228,7 @@ const UnifiedHeader: React.FC = () => {
                                 }`}
                             >
                                 Inicio
-                            </Link>
+                            </Link> */}
                             
                             {/* Productos en móvil */}
                             <div className="pl-4">
@@ -245,7 +245,7 @@ const UnifiedHeader: React.FC = () => {
                                 </Link>
                             </div>
                             
-                            <Link
+                            {/* <Link
                                 href="/provider"
                                 className={`text-base font-medium transition-colors py-2 px-4 rounded-lg ${
                                     shouldHaveBackground
@@ -258,8 +258,8 @@ const UnifiedHeader: React.FC = () => {
                                 }`}
                             >
                                 Proveedor
-                            </Link>
-                            <Link
+                            </Link> */}
+                            {/* <Link
                                 href="/patients"
                                 className={`text-base font-medium transition-colors py-2 px-4 rounded-lg ${
                                     shouldHaveBackground
@@ -272,7 +272,7 @@ const UnifiedHeader: React.FC = () => {
                                 }`}
                             >
                                 Paciente
-                            </Link>
+                            </Link> */}
                             {/* <Link
                                 href="/blog"
                                 className={`text-base font-medium transition-colors py-2 px-4 rounded-lg ${
@@ -289,20 +289,20 @@ const UnifiedHeader: React.FC = () => {
                             </Link> */}
 
                             {/* Mobile CTA Buttons */}
-                            <div className="pt-4 border-t border-gray-200 space-y-4">
+                            <div className="pt-4 border-t border-gray-200 flex flex-col sm:flex-row gap-3">
                                 <Link href="/login">
-                                    <button className={`w-full py-2 font-bold px-4 rounded-full transition-all duration-300 ease-in-out  cursor-pointer text-sm ${
+                                    <button className={`flex-1 py-2 font-bold px-4 rounded-full transition-all duration-300 ease-in-out cursor-pointer text-sm ${
                                         shouldHaveBackground
                                             ? "border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white"
                                             : isHomePage
                                                 ? "border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white"
                                                 : "border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white"
                                     }`}>
-                                        Log In
+                                        Iniciar sesión
                                     </button>
                                 </Link>
                                 <Link href="/waitlist">
-                                    <button className={`w-full py-2 font-bold px-4 rounded-full transition-all duration-300 ease-in-out  cursor-pointer text-sm ${
+                                    <button className={`flex-1 py-2 font-bold px-4 rounded-full transition-all duration-300 ease-in-out cursor-pointer text-sm ${
                                         shouldHaveBackground
                                             ? "bg-[#5FA9DF] text-white hover:bg-[#4A9BCE]"
                                             : isHomePage

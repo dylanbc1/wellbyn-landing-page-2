@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollAnimation from "@/app/components/ScrollAnimation";
 import { CheckCircle, Clock, TrendingUp, Zap, Users, DollarSign, Play } from "lucide-react";
+import SchedulingFeaturesCarousel from "@/app/components/SchedulingFeaturesCarousel";
 
 // Hook para animación de contador
 const useCounterAnimation = (end: number, duration: number = 2000, shouldStart: boolean = false) => {
@@ -144,17 +145,21 @@ export default function SchedulingPage() {
                                 </div>
                             </div>
                             
-                            {/* Imagen - derecha en desktop */}
+                            {/* Video - derecha en desktop */}
                             <div className="flex justify-center lg:justify-start items-center order-1 lg:order-2">
                                 <div className="relative w-full max-w-[500px] lg:max-w-[700px]">
-                                    <Image 
-                                        src="/images/what-is-wellbyn.png" 
-                                        alt="scheduling-dashboard" 
-                                        width={1200} 
-                                        height={800} 
-                                        className="w-full h-auto drop-shadow-lg" 
-                                        priority={true}
-                                    />
+                                    <video 
+                                        className="w-full h-auto rounded-lg drop-shadow-lg" 
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        preload="auto"
+                                    >
+                                        <source src="/images/scheduling-hero-demo.mov" type="video/quicktime" />
+                                        <source src="/images/scheduling-hero-demo.mov" type="video/mp4" />
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
                                 </div>
                             </div>
                         </div>
@@ -314,14 +319,15 @@ export default function SchedulingPage() {
                             </div>
                         </ScrollAnimation>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-12 md:mt-16 lg:mt-20">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-6 md:mt-16 lg:mt-20">
+                            {/* Desktop: Imagen a la izquierda */}
                             <ScrollAnimation direction="left" delay={0.3}>
                                 <div className="hidden md:flex justify-center">
                                     <Image 
-                                        src="/images/chart-img.png" 
+                                        src="/images/what-is-wellbyn.png" 
                                         alt="scheduling-optimization" 
-                                        width={600} 
-                                        height={400} 
+                                        width={1200} 
+                                        height={800} 
                                         className="w-full h-auto max-w-[500px]"
                                     />
                                 </div>
@@ -361,10 +367,23 @@ export default function SchedulingPage() {
                                 </div>
                             </ScrollAnimation>
                         </div>
+                        
+                        {/* Mobile: Imagen debajo del texto */}
+                        <ScrollAnimation direction="up" delay={0.5}>
+                            <div className="md:hidden mt-16 flex justify-center">
+                                <Image 
+                                    src="/images/what-is-wellbyn.png" 
+                                    alt="scheduling-optimization" 
+                                    width={1200} 
+                                    height={800} 
+                                    className="w-full h-auto max-w-[400px]"
+                                />
+                            </div>
+                        </ScrollAnimation>
                     </div>
                 </ScrollAnimation>
 
-                {/* Características principales */}
+                {/* Características principales - Carrusel infinito */}
                 <ScrollAnimation>
                     <div className="mt-24 md:mt-32 lg:mt-40">
                         <ScrollAnimation direction="up" delay={0.2}>
@@ -373,91 +392,9 @@ export default function SchedulingPage() {
                             </div>
                         </ScrollAnimation>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-                            <ScrollAnimation direction="up" delay={0.1}>
-                                <div className="flex gap-4 items-start">
-                                    <Zap className="w-6 h-6 md:w-7 md:h-7 text-[#5FA9DF] flex-shrink-0 mt-1" />
-                                    <div>
-                                        <h3 className="text-lg md:text-xl font-medium text-[#0C1523] mb-2">
-                                            Optimización en tiempo real
-                                        </h3>
-                                        <p className="text-base md:text-lg text-[#3C4147] leading-relaxed">
-                                            Ajustes automáticos basados en cancelaciones, emergencias y disponibilidad.
-                                        </p>
-                                    </div>
-                                </div>
-                            </ScrollAnimation>
-                            
-                            <ScrollAnimation direction="up" delay={0.2}>
-                                <div className="flex gap-4 items-start">
-                                    <DollarSign className="w-6 h-6 md:w-7 md:h-7 text-[#5FA9DF] flex-shrink-0 mt-1" />
-                                    <div>
-                                        <h3 className="text-lg md:text-xl font-medium text-[#0C1523] mb-2">
-                                            Maximización de ingresos
-                                        </h3>
-                                        <p className="text-base md:text-lg text-[#3C4147] leading-relaxed">
-                                            Prioriza citas de mayor valor y optimiza la distribución de procedimientos.
-                                        </p>
-                                    </div>
-                                </div>
-                            </ScrollAnimation>
-                            
-                            <ScrollAnimation direction="up" delay={0.3}>
-                                <div className="flex gap-4 items-start">
-                                    <Clock className="w-6 h-6 md:w-7 md:h-7 text-[#5FA9DF] flex-shrink-0 mt-1" />
-                                    <div>
-                                        <h3 className="text-lg md:text-xl font-medium text-[#0C1523] mb-2">
-                                            Gestión inteligente del tiempo
-                                        </h3>
-                                        <p className="text-base md:text-lg text-[#3C4147] leading-relaxed">
-                                            Buffers automáticos, tiempos de preparación y transiciones optimizadas.
-                                        </p>
-                                    </div>
-                                </div>
-                            </ScrollAnimation>
-                            
-                            <ScrollAnimation direction="up" delay={0.4}>
-                                <div className="flex gap-4 items-start">
-                                    <Users className="w-6 h-6 md:w-7 md:h-7 text-[#5FA9DF] flex-shrink-0 mt-1" />
-                                    <div>
-                                        <h3 className="text-lg md:text-xl font-medium text-[#0C1523] mb-2">
-                                            Experiencia del paciente mejorada
-                                        </h3>
-                                        <p className="text-base md:text-lg text-[#3C4147] leading-relaxed">
-                                            Menos esperas, mejores horarios y comunicación proactiva.
-                                        </p>
-                                    </div>
-                                </div>
-                            </ScrollAnimation>
-                            
-                            <ScrollAnimation direction="up" delay={0.5}>
-                                <div className="flex gap-4 items-start">
-                                    <TrendingUp className="w-6 h-6 md:w-7 md:h-7 text-[#5FA9DF] flex-shrink-0 mt-1" />
-                                    <div>
-                                        <h3 className="text-lg md:text-xl font-medium text-[#0C1523] mb-2">
-                                            Analytics predictivos
-                                        </h3>
-                                        <p className="text-base md:text-lg text-[#3C4147] leading-relaxed">
-                                            Predicciones de demanda, patrones estacionales y recomendaciones estratégicas.
-                                        </p>
-                                    </div>
-                                </div>
-                            </ScrollAnimation>
-                            
-                            <ScrollAnimation direction="up" delay={0.6}>
-                                <div className="flex gap-4 items-start">
-                                    <CheckCircle className="w-6 h-6 md:w-7 md:h-7 text-[#5FA9DF] flex-shrink-0 mt-1" />
-                                    <div>
-                                        <h3 className="text-lg md:text-xl font-medium text-[#0C1523] mb-2">
-                                            Integración completa
-                                        </h3>
-                                        <p className="text-base md:text-lg text-[#3C4147] leading-relaxed">
-                                            Se conecta con tu EHR existente y sistemas de facturación sin complicaciones.
-                                        </p>
-                                    </div>
-                                </div>
-                            </ScrollAnimation>
-                        </div>
+                        <ScrollAnimation direction="up" delay={0.4}>
+                            <SchedulingFeaturesCarousel />
+                        </ScrollAnimation>
                     </div>
                 </ScrollAnimation>
 

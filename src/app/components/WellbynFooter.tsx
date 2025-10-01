@@ -6,7 +6,7 @@ export default function WellbynFooter() {
     return (
         <div className="w-full">
             <div className="mt-32 md:mt-36 lg:mt-[200px] mx-auto max-w-[1295px] px-6 md:px-0">
-                <div className="mt-8 md:mt-12 lg:mt-[80px] pb-8 md:pb-12 lg:pb-[66px] border-b border-[#EBEDF2] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-[138px]">
+                <div className="mt-8 md:mt-12 lg:mt-[80px] pb-8 md:pb-12 lg:pb-[66px] border-b border-[#EBEDF2] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-[138px]">
                     <div className="text-center md:text-left">
                         <Image
                             src={'/images/logo-horizontal-azul-hd.png'}
@@ -28,11 +28,11 @@ export default function WellbynFooter() {
                             />
                         </div>
                     </div>
-                    <div className="flex flex-col gap-4 md:gap-6 lg:gap-[24px] text-[#3C4147] font-medium text-center md:text-left">
+                    {/* <div className="flex flex-col gap-4 md:gap-6 lg:gap-[24px] text-[#3C4147] font-medium text-center md:text-left">
                         <div className="text-lg md:text-xl lg:text-[20px] leading-[1.5] md:leading-[34px] font-semibold">Servicios</div>
                         <Link href="/provider" className="text-sm md:text-base hover:text-[#5FA9DF] transition-colors">Para Proveedores</Link>
                         <Link href="/patients" className="text-sm md:text-base hover:text-[#5FA9DF] transition-colors">Para Pacientes</Link>
-                    </div>
+                    </div> */}
                     <div className="flex flex-col gap-4 md:gap-6 lg:gap-[24px] text-[#3C4147] font-medium text-center md:text-left">
                         <div className="text-lg md:text-xl lg:text-[20px] leading-[1.5] md:leading-[34px] font-semibold">Recursos</div>
                         {/* <Link href="/blog" className="text-sm md:text-base hover:text-[#5FA9DF] transition-colors">Blog</Link> */}
