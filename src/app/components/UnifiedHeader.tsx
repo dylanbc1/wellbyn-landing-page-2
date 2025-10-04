@@ -56,7 +56,7 @@ const UnifiedHeader: React.FC = () => {
     const shouldHaveBackground = isScrolled || isMobileMenuOpen;
 
     return (
-        <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        <div className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
             shouldHaveBackground
                 ? "bg-gray-50 shadow-lg border-b border-gray-200"
                 : "bg-transparent"
@@ -130,7 +130,7 @@ const UnifiedHeader: React.FC = () => {
                                 Paciente
                             </Link> */}
                             
-                            {/* Productos Dropdown - Al final */}
+                            {/* Productos Dropdown - Al final
                             <div className="relative">
                                 <button
                                     onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
@@ -146,7 +146,7 @@ const UnifiedHeader: React.FC = () => {
                                     <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
                                 </button>
                                 
-                                {/* Dropdown Menu - Estilo cuadrado mejorado */}
+                                {/* Dropdown Menu - Estilo cuadrado mejorado 
                                 <div className={`products-dropdown absolute top-full right-0 mt-2 w-40 bg-white rounded-sm shadow-lg border border-gray-200 transition-all duration-150 z-50 ${
                                     isProductsDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                                 }`}>
@@ -160,7 +160,8 @@ const UnifiedHeader: React.FC = () => {
                                         </Link>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
+                            */}
                         </nav>
                     </div>
 
@@ -168,7 +169,7 @@ const UnifiedHeader: React.FC = () => {
                     <div className="flex items-center gap-4">
                         {/* Desktop CTA Buttons */}
                         <div className="hidden lg:flex items-center gap-3">
-                            <Link href="/login">
+                            <Link href="/request">
                                 <button className={`py-2 font-bold px-4 rounded-full transition-all duration-300 ease-in-out  cursor-pointer text-sm ${
                                     shouldHaveBackground
                                         ? "border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white"
@@ -176,7 +177,7 @@ const UnifiedHeader: React.FC = () => {
                                             ? "border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white"
                                             : "border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white"
                                 }`}>
-                                    Iniciar sesión
+                                    Solicitar demo
                                 </button>
                             </Link>
                             <Link href="/waitlist">
@@ -213,107 +214,136 @@ const UnifiedHeader: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Mobile Menu */}
-                <div className={`mobile-menu-container lg:hidden transition-all duration-300 overflow-hidden ${
-                    isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                {/* Mobile Menu Overlay */}
+                {isMobileMenuOpen && (
+                    <div 
+                        className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    />
+                )}
+
+                {/* Mobile Menu - Slide from right */}
+                <div className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
+                    isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
                 }`}>
-                    <div className="py-4 border-t border-gray-200">
-                        <nav className="flex flex-col space-y-4">
-                            {/* <Link
-                                href="/"
-                                className={`text-base font-medium transition-colors py-2 px-4 rounded-lg ${
-                                    isHomePage
-                                        ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
-                                        : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
-                                }`}
+                    <div className="flex flex-col h-full">
+                        {/* Header with close button */}
+                        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                            <Image
+                                src="/images/logo-horizontal-azul-hd.png"
+                                alt="Wellbyn Logo"
+                                width="120"
+                                height="32"
+                                className="h-8 w-auto"
+                                quality={100}
+                                unoptimized
+                            />
+                            <button
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                                aria-label="Close mobile menu"
                             >
-                                Inicio
-                            </Link> */}
-                            
-                            {/* Productos en móvil */}
-                            <div className="pl-4">
-                                <div className="text-sm font-medium text-[#6B7280] mb-2">Productos</div>
-                                <Link
-                                    href="/scheduling"
-                                    className={`text-base font-medium transition-colors py-2 px-4 rounded-lg block ${
-                                        isSchedulingPage
+                                <div className="w-6 h-6 flex flex-col justify-center items-center">
+                                    <span className="block w-5 h-0.5 bg-[#18181B] rotate-45 translate-y-1"></span>
+                                    <span className="block w-5 h-0.5 bg-[#18181B] -rotate-45 -translate-y-1"></span>
+                                </div>
+                            </button>
+                        </div>
+
+                        {/* Navigation Content */}
+                        <div className="flex-1 overflow-y-auto">
+                            <nav className="p-6 space-y-6">
+                                {/* <Link
+                                    href="/"
+                                    className={`text-lg font-medium transition-colors py-3 px-4 rounded-lg block ${
+                                        isHomePage
                                             ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
                                             : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
                                     }`}
+                                    onClick={() => setIsMobileMenuOpen(false)}
                                 >
-                                    Scheduling
-                                </Link>
-                            </div>
-                            
-                            {/* <Link
-                                href="/provider"
-                                className={`text-base font-medium transition-colors py-2 px-4 rounded-lg ${
-                                    shouldHaveBackground
-                                        ? isProviderPage
-                                            ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
-                                            : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
-                                        : isProviderPage
-                                            ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
-                                            : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
-                                }`}
-                            >
-                                Proveedor
-                            </Link> */}
-                            {/* <Link
-                                href="/patients"
-                                className={`text-base font-medium transition-colors py-2 px-4 rounded-lg ${
-                                    shouldHaveBackground
-                                        ? isPatientsPage
-                                            ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
-                                            : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
-                                        : isPatientsPage
-                                            ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
-                                            : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
-                                }`}
-                            >
-                                Paciente
-                            </Link> */}
-                            {/* <Link
-                                href="/blog"
-                                className={`text-base font-medium transition-colors py-2 px-4 rounded-lg ${
-                                    shouldHaveBackground
-                                        ? isBlogPage
-                                            ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
-                                            : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
-                                        : isBlogPage
-                                            ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
-                                            : "text-white hover:text-gray-200 hover:bg-white/10"
-                                }`}
-                            >
-                                Blog
-                            </Link> */}
-
-                            {/* Mobile CTA Buttons */}
-                            <div className="pt-4 border-t border-gray-200 flex flex-col sm:flex-row gap-3">
-                                <Link href="/login">
-                                    <button className={`flex-1 py-2 font-bold px-4 rounded-full transition-all duration-300 ease-in-out cursor-pointer text-sm ${
+                                    Inicio
+                                </Link> */}
+                                
+                                {/* Productos en móvil 
+                                <div className="space-y-2">
+                                    <div className="text-sm font-medium text-[#6B7280] mb-2 px-4">Productos</div>
+                                    <Link
+                                        href="/scheduling"
+                                        className={`text-lg font-medium transition-colors py-3 px-4 rounded-lg block ${
+                                            isSchedulingPage
+                                                ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
+                                                : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
+                                        }`}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        Scheduling
+                                    </Link>
+                                </div>*/}
+                                
+                                {/* <Link
+                                    href="/provider"
+                                    className={`text-lg font-medium transition-colors py-3 px-4 rounded-lg block ${
                                         shouldHaveBackground
-                                            ? "border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white"
-                                            : isHomePage
-                                                ? "border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white"
-                                                : "border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white"
-                                    }`}>
-                                        Iniciar sesión
+                                            ? isProviderPage
+                                                ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
+                                                : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
+                                            : isProviderPage
+                                                ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
+                                                : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
+                                    }`}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Proveedor
+                                </Link> */}
+                                {/* <Link
+                                    href="/patients"
+                                    className={`text-lg font-medium transition-colors py-3 px-4 rounded-lg block ${
+                                        shouldHaveBackground
+                                            ? isPatientsPage
+                                                ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
+                                                : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
+                                            : isPatientsPage
+                                                ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
+                                                : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
+                                    }`}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Paciente
+                                </Link> */}
+                                {/* <Link
+                                    href="/blog"
+                                    className={`text-lg font-medium transition-colors py-3 px-4 rounded-lg block ${
+                                        shouldHaveBackground
+                                            ? isBlogPage
+                                                ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
+                                                : "text-[#18181B] hover:text-[#5FA9DF] hover:bg-gray-50"
+                                            : isBlogPage
+                                                ? "text-[#5FA9DF] font-semibold bg-[#5FA9DF]/10"
+                                                : "text-white hover:text-gray-200 hover:bg-white/10"
+                                    }`}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Blog
+                                </Link> */}
+                            </nav>
+                        </div>
+
+                        {/* Mobile CTA Buttons - Fixed at bottom */}
+                        <div className="p-6 border-t border-gray-200 bg-gray-50">
+                            <div className="flex flex-col gap-2">
+                                <Link href="/request" onClick={() => setIsMobileMenuOpen(false)}>
+                                    <button className="w-full py-3 font-bold px-4 rounded-full transition-all duration-300 ease-in-out cursor-pointer text-sm border-[1.5px] border-[#5FA9DF] text-[#5FA9DF] hover:bg-[#5FA9DF] hover:text-white">
+                                        Solicitar demo
                                     </button>
                                 </Link>
-                                <Link href="/waitlist">
-                                    <button className={`flex-1 py-2 font-bold px-4 rounded-full transition-all duration-300 ease-in-out cursor-pointer text-sm ${
-                                        shouldHaveBackground
-                                            ? "bg-[#5FA9DF] text-white hover:bg-[#4A9BCE]"
-                                            : isHomePage
-                                                ? "bg-[#5FA9DF] text-white hover:bg-[#4A9BCE]"
-                                                : "bg-[#5FA9DF] text-white hover:bg-[#4A9BCE]"
-                                    }`}>
+                                <Link href="/waitlist" onClick={() => setIsMobileMenuOpen(false)}>
+                                    <button className="w-full py-3 font-bold px-4 rounded-full transition-all duration-300 ease-in-out cursor-pointer text-sm bg-[#5FA9DF] text-white hover:bg-[#4A9BCE]">
                                         Registrarse
                                     </button>
                                 </Link>
                             </div>
-                        </nav>
+                        </div>
                     </div>
                 </div>
             </div>

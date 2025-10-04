@@ -114,9 +114,9 @@ export default function SchedulingPage() {
                     <UnifiedHeader />
                     <div className="pt-32 sm:pt-[140px] md:pt-[160px] lg:pt-[180px] pb-20 md:pb-[120px] lg:pb-[150px]">
                         {/* Hero Section */}
-                        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 xl:gap-16 items-center min-h-[500px]">
+                        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-8 lg:gap-12 xl:gap-16 items-center min-h-[500px]">
                             {/* Texto - izquierda en desktop */}
-                            <div className="text-center lg:text-left order-2 lg:order-1">
+                            <div className="text-center lg:text-left order-2 lg:order-1 mt-8 md:mt-12 lg:mt-0">
                                 <div style={{letterSpacing: '-1px'}} className="font-medium text-[#0C1523] text-[28px] sm:text-5xl md:text-6xl lg:text-[48px] xl:text-[56px] leading-tight md:leading-tight lg:leading-[100%]">
                                     Optimiza tu agenda con <span className="bg-[#5FA9DF] text-white px-1 py-0.5 sm:px-2 sm:py-1 rounded-md text-[20px] sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[44px]">IA</span>
                                 </div>
@@ -145,21 +145,18 @@ export default function SchedulingPage() {
                                 </div>
                             </div>
                             
-                            {/* Video - derecha en desktop */}
+                            {/* Imagen - derecha en desktop */}
                             <div className="flex justify-center lg:justify-start items-center order-1 lg:order-2">
-                                <div className="relative w-full max-w-[500px] lg:max-w-[700px]">
-                                    <video 
-                                        className="w-full h-auto rounded-lg drop-shadow-lg" 
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        preload="auto"
-                                    >
-                                        <source src="/images/scheduling-hero-demo.mov" type="video/quicktime" />
-                                        <source src="/images/scheduling-hero-demo.mov" type="video/mp4" />
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
+                                <div className="relative w-full max-w-[800px] lg:max-w-[900px] xl:max-w-[1000px]">
+                                    <Image 
+                                        src="/images/scheduling-hero.png" 
+                                        alt="Scheduling Hero" 
+                                        width={1000} 
+                                        height={750} 
+                                        className="w-full h-auto rounded-lg drop-shadow-lg"
+                                        priority
+                                        unoptimized
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -264,7 +261,7 @@ export default function SchedulingPage() {
                                     {/* Video wrapper con efectos premium */}
                                     <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl border border-white/50">
                                         {/* Video real */}
-                                        <div className="relative aspect-video bg-gradient-to-br from-[#0C1523] to-[#2A3441] rounded-xl overflow-hidden">
+                                        <div className="relative aspect-[5/4] bg-gradient-to-br from-[#0C1523] to-[#2A3441] rounded-xl overflow-hidden">
                                             <video 
                                                 ref={videoRef}
                                                 className="w-full h-full object-cover rounded-xl"
@@ -274,7 +271,8 @@ export default function SchedulingPage() {
                                                 playsInline
                                                 preload="auto"
                                             >
-                                                <source src="/images/scheduling-demo.mp4" type="video/mp4" />
+                                                <source src="/images/scheduling-hero-demo.mov" type="video/quicktime" />
+                                                <source src="/images/scheduling-hero-demo.mov" type="video/mp4" />
                                                 Tu navegador no soporta el elemento de video.
                                             </video>
                                             
